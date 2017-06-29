@@ -2,6 +2,8 @@
 
 import rospy
 import serial
+import logging
+import time
 from weight.msg import Sensor
 from std_msgs.msg import String
 
@@ -18,12 +20,19 @@ def rosToSerial():
 
 	rospy.loginfo("Data Receiving Start")
 
+	loadcell = open("test.txt", "w")
+
 	while not rospy.is_shutdown():
 		tmp = ser.readline()
+		t = time.time()
+		t_tmp = str(t)
+		loadcell.write(t_tmp + "," + tmp)
 
-		pub3.publish(tmp)
+		print tmp
+
+#		pub3.publish(tmp)
 #		print "Raw Data: ", tmp
-		tmp_sen = tmp.strip().split(',')
+#		tmp_sen = tmp.strip().split(',')
 #		print tmp_sen[0]
 #		if len(tmp_sen) == 2 :
 #			sen1 = int(tmp_sen[0])

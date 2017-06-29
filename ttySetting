@@ -1,0 +1,5 @@
+sudo chmod a+r /dev/ttyACM0
+sudo chmod a+w /dev/ttyACM0
+sudo chmod a+r /dev/ttyUSB0
+sudo chmod a+w /dev/ttyUSB0
+
